@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+@extends('layout')
 
-<html>
-<head>
-    <title></title>
-</head>
+@section('title')
+    Content.
+@endsection
 
-<body>
-    <h1>My name is Nick</h1>
-</body>
+@section('content')
 
-</html>
+    <h1>Let's go</h1>
+
+@endsection
+
