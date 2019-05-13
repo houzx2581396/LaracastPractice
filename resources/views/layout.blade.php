@@ -2,16 +2,14 @@
 
 <html>
 <head>
-    <title>@yield('title','Laracast')</title>
+    <title>Laracast</title>
+    <bulmalin></bulmalin>
 </head>
 
 <body>
-<ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/contact">Contact</a></li>
-    <li><a href="/about">About</a></li>
-</ul>
-@yield('content')
+    <div class="container">
+        @yield('content')
+    </div>
 </body>
 
 </html>
