@@ -17,16 +17,7 @@ Route::get('/','PagesController@home');
 Route::get('/about','PagesController@about');
 Route::get('/contact','PagesController@contact');
 
-/*
- * Get /projects (index)
- * post /projects (store)
- * Get /projects/create (create)
- * Get /projects/1 (show)
- * PATCH /projects/1 (update)
- * DELETE /projects/1 (destroy)
- * Get /projects/edit (edit)
- *
- */
+
 
 Route::resource('/projects','ProjectsController');
 //Route::get('/projects','ProjectsController@index');
