@@ -3,13 +3,18 @@
 <html>
 <head>
     <title>Laracast</title>
-    <bulmalin></bulmalin>
+
+    <style>
+        is-complete{
+            text-decoration: line-through;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        @yield('content')
-    </div>
+<div class="container">
+    @yield('content')
+</div>
 </body>
 
 </html>
