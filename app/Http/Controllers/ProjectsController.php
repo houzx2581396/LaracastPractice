@@ -3,13 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Project;
+
 class ProjectsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::where('owner_id', auth()->id())->get();
 
-        return view('projects.index',compact('projects'));
+        return view('projects.index', compact('projects'));
     }
 
     public function create()
@@ -27,27 +33,30 @@ class ProjectsController extends Controller
     public function show(Project $project)
     {
 
-        return view('projects.show',compact('project'));
+        return view('projects.show', compact('project'));
     }
 
     public function edit(Project $project)
     {
-        return view('projects.edit',compact('project'));
+        return view('projects.edit', compact('project'));
     }
 
     public function destroy(Project $project)
     {
         $project->delete();
+
         return redirect('/projects');
     }
 
     public function store()
     {
-        request()->validate([
-            'title'=> ['required','min:3'],
-            'description'=>['required','max:225']]);
+        $attributes = request()->validate([
+            'title' => ['required', 'min:3'],
+            'description' => ['required', 'max:225']]);
 
-        Project::create(request(['title', 'description']));
+        $attributes['owner_id'] = auth()->id();
+
+        Project::create($attributes);
 
         return redirect('/projects');
     }
