@@ -1,8 +1,8 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">Creat a New Projects</h1>
 
+    <h1 class="title">Creat a New Projects</h1>
     <form method="POST" action="/projects">
         {{ csrf_field() }}
 
@@ -30,4 +30,4 @@
 
         @include('errors')
     </form>
-@endsection
+    @endsection
