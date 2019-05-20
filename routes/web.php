@@ -22,4 +22,7 @@ Route::resource('/projects', 'ProjectsController');
 
 Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
 Route::post('complete-tasks/{task}', 'CompletedController@store');
-Route::delete('complete-tasks/{task}', 'CompletedController@destroy');
+Route::delete('complete-tasks/{task}', 'CompletedController@destroy') ;
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
